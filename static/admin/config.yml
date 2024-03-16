@@ -38,6 +38,24 @@ collections:
               widget: string,
               pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
             }
+      - label: 'Home Page'
+        name: 'home'
+        file: 'content/site/home.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - { label: Title, name: title, widget: string, hint: 'Title to use for the home page' }
+          - {
+              label: Header image,
+              name: headerimg,
+              widget: image,
+              hint: 'Used for the image at the top of the home page',
+              allow_multiple: false,
+            }
+          - { label: About text, name: abouttext, widget: markdown }
+          - { label: Contact banner text, name: contacttext, widget: string }
+          - { label: Contact button text, name: contactbtntext, widget: string }
           # - { label: Site Email, name: siteemail, widget: string, required: false }
   - name: 'blog'
     label: 'Blog'
@@ -48,7 +66,14 @@ collections:
     # editor:
     #   preview: true
     fields:
-      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - {
+          label: 'Created Date',
+          name: 'createdAt',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+        }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
@@ -78,7 +103,7 @@ collections:
           widget: 'list',
           required: false,
           summary: '{{fields.image}}',
-          field: { label: 'Image', name: 'image', widget: 'image' }
+          field: { label: 'Image', name: 'image', widget: 'image' },
         }
       - name: 'links'
         widget: 'list'
@@ -86,9 +111,9 @@ collections:
         label_singular: 'Link'
         required: false
         fields:
-          - label: "Link Text"
-            name: "link_text"
-            widget: "string"
-          - label: "URL"
-            name: "url"
-            widget: "string"
+          - label: 'Link Text'
+            name: 'link_text'
+            widget: 'string'
+          - label: 'URL'
+            name: 'url'
+            widget: 'string'

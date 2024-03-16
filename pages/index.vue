@@ -1,3 +1,4 @@
+
 <template>
   <main>
     <section class="self-center flex flex-col flex-1 items-center justify-center">
@@ -11,3 +12,6 @@
     </section>
   </main>
 </template>
+
+<script setup>
+</script>
