@@ -31,31 +31,31 @@ export default {
         content: SITE_INFO.sitedescription || process.env.npm_package_description || ''
       }
     ],
-    link: [
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: true
-      },
-      {
-        rel: 'preload',
-        as: 'style',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
-        media: 'print',
-        onload: `this.media='all'`
-      }
-    ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
-    noscript: [
-      {
-        innerHTML:
-          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">'
-      }
-    ],
-    __dangerouslyDisableSanitizers: ['noscript']
+    // link: [
+    //   {
+    //     rel: 'preconnect',
+    //     href: 'https://fonts.gstatic.com',
+    //     crossorigin: true
+    //   },
+    //   {
+    //     rel: 'preload',
+    //     as: 'style',
+    //     href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
+    //   },
+    //   {
+    //     rel: 'stylesheet',
+    //     href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
+    //     media: 'print',
+    //     onload: `this.media='all'`
+    //   }
+    // ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
+    // noscript: [
+    //   {
+    //     innerHTML:
+    //       '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">'
+    //   }
+    // ],
+    // __dangerouslyDisableSanitizers: ['noscript']
   },
   /*
    ** Customize the progress-bar color
@@ -76,7 +76,21 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/content', 'nuxt-purgecss'],
+  modules: [
+    '@nuxt/content', 
+    'nuxt-purgecss',
+    '@nuxtjs/google-fonts'
+  ],
+  googleFonts: {
+    families: {
+      'Madimi One': true,
+      Lato: {
+        wght: [400, 700],
+        ital: [400, 700]
+      },
+      Inter: [400, 600, 700]
+    }
+  },
   /*
    ** Build configuration
    */

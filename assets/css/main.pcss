@@ -17,3 +17,37 @@
 @tailwind components;
 @tailwind utilities;
 /* If you need to let Tailwind classes overwrite your own classes, they need to be beneath this */
+
+* {
+  --body-font: 'Lato';
+  --header-font: 'Madimi One';
+
+  --bg-color: #171d1e;
+  --highlight-color: white;
+  --color-pop: teal;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--highlight-color);
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  /* max-width: 100vw; */
+  max-width: 85%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font);
+}
