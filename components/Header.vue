@@ -19,12 +19,14 @@
 
 <style>
 .site-nav ul {
-  /* display: flex; */
-  flex-direction: column;
-  max-width: 100%;
+  display: flex;
   align-items: center;
-  width: 70%;
+  flex-direction: column;
+  list-style-type: none;
+  max-width: 100%;
   margin: 0 auto;
+  padding-left: 0;
+  width: 70%;
 }
 
 .site-nav ul li {
@@ -37,9 +39,11 @@
   background-color: #c3cbdc;
   border-radius: 0;
   color: #171d1e;
-  position: relative;
   display: flex;
   justify-content: center;
+  padding: 0.7em;
+  position: relative;
+  text-decoration: none;
 }
 
 /* .site-nav ul li a::after {

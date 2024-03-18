@@ -54,6 +54,7 @@ collections:
               allow_multiple: false,
             }
           - { label: About text, name: abouttext, widget: markdown }
+          - { label: About image, name: aboutimg, widget: image }
           - { label: Contact banner text, name: contacttext, widget: string }
           - { label: Contact button text, name: contactbtntext, widget: string }
           # - { label: Site Email, name: siteemail, widget: string, required: false }
