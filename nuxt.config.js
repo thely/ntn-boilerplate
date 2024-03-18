@@ -1,11 +1,15 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssEasingGradients from 'postcss-easing-gradients'
 import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
-export default {
+export default defineNuxtConfig({
   target: 'static',
-  components: true,
+  components: {
+    global: true,
+    dirs: ['~/components']
+  },
   generate: {
     fallback: true
   },
@@ -61,24 +65,12 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: '#526488' },
-  /*
-   ** Global CSS
-   */
   css: ['@/assets/css/main.pcss'],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: ['~/plugins/vue-content-placeholders.js'],
-  /*
-   ** Nuxt.js dev-modules
-   */
   buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
-  /*
-   ** Nuxt.js modules
-   */
   modules: [
     '@nuxt/content', 
-    'nuxt-purgecss',
+    // 'nuxt-purgecss',
     '@nuxtjs/google-fonts'
   ],
   googleFonts: {
@@ -124,24 +116,24 @@ export default {
     cssPath: '~/assets/css/main.pcss',
     exposeConfig: false // enables `import { theme } from '~tailwind.config'`
   },
-  purgeCSS: {
-    mode: 'postcss',
-    // ? Safelisting docs: https://purgecss.com/safelisting.html
-    safelist: {
-      // standard: [],
-      deep: [/dark/, /light/, /btn/, /icon/, /main/],
-      greedy: [
-        /^card/,
-        /image$/,
-        /title$/,
-        /^nuxt-content/,
-        /code/,
-        /pre/,
-        /token/,
-        /^vue-content-placeholders/
-      ]
-    }
-  },
+  // purgeCSS: {
+  //   mode: 'postcss',
+  //   // ? Safelisting docs: https://purgecss.com/safelisting.html
+  //   safelist: {
+  //     // standard: [],
+  //     deep: [/dark/, /light/, /btn/, /icon/, /main/],
+  //     greedy: [
+  //       /^card/,
+  //       /image$/,
+  //       /title$/,
+  //       /^nuxt-content/,
+  //       /code/,
+  //       /pre/,
+  //       /token/,
+  //       /^vue-content-placeholders/
+  //     ]
+  //   }
+  // },
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
@@ -166,4 +158,4 @@ export default {
       ogImage: '/preview.jpg'
     }
   }
-}
+})
