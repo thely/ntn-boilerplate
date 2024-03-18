@@ -1,8 +1,7 @@
 <template>
   <div class="home-block">
     <div class="home-inner">
-      <!-- <Header /> -->
-      <img :src="image" />
+      <img v-if="headerImage != null" :src="headerImage" />
     </div>
 
     <div class="left-side">
@@ -17,9 +16,12 @@
 </template>
 
 <script setup>
-// import { ref } from 'vue';
-const image = "/img/new_homepage.jpg";
+// const image = "/img/new_homepage.jpg";
+const headerImage = useState('headerImage')
 
+onMounted(() => {
+  console.log(headerImage)
+})
 </script>
 
 <style>
