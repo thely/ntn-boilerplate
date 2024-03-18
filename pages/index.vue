@@ -3,13 +3,14 @@
   <main>
     <section class="self-center flex flex-col flex-1 items-center justify-center">
       <h1 class="title text-center">{{ HOME.title }}</h1>
+      <img :src="HOME.aboutimg" class="about-img" />
       <ContentRendererMarkdown :value="result" v-if="result" />
     </section>
 
     <section class="self-center flex">
       <p>
         {{ HOME.contacttext }}
-        <a href="/contact">{{ HOME.contactbtntext }}</a>
+        <a href="/">{{ HOME.contactbtntext }}</a>
       </p>
     </section>
 
@@ -49,3 +50,9 @@ onMounted(async () => {
   console.log(headerImage);
 })
 </script>
+
+<style>
+.about-img {
+  float: left;
+}
+</style>
