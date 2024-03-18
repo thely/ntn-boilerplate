@@ -28,16 +28,22 @@
   </main>
 </template>
 
-<script>
-export default {
-  async asyncData({ $content, params, error }) {
-    let post;
-    try {
-      post = await $content("projects", params.project).fetch();
-    } catch (e) {
-      error({ message: "Project not found" });
-    }
-    return { post };
-  },
-}
+<script setup>
+const route = useRoute()
+const slug = route.params.slug
+
+const { post } = await useAsyncData('singleProj', 
+  () => queryContent(`projects/${slug}`)
+).findOne()
+// export default {
+//   async asyncData({ $content, params, error }) {
+//     let post;
+//     try {
+//       post = await $content("projects", params.project).fetch();
+//     } catch (e) {
+//       error({ message: "Project not found" });
+//     }
+//     return { post };
+//   },
+// }
 </script>

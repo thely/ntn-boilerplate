@@ -4,11 +4,14 @@
     <HomeHeader />
     <div class="inner-wrapper">
       <div></div>
-      <nuxt />
+      <slot />
     </div>
-    <ColorModePicker />
+    <!-- <ColorModePicker /> -->
   </div>
 </template>
+
+<script setup>
+</script>
 
 <style>
 .wrapper {
